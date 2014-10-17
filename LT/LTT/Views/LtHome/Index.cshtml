@@ -31,21 +31,24 @@
         var cellClass = "";
         var cellId = "";
         var cellText = "";
+        var rowLength = 13;
+        var colLength = 32;
+        var headerCellsClass = "headerCells";
 
-        for (int row = 0; row < 14; row++)
+        for (int row = 0; row <= rowLength; row++)
         {
             <tr>
-                @for (int column = 0; column < 33; column++)
+                @for (int column = 0; column <= colLength; column++)
                 {
-                    if (row <= 2 && (column == 0 || column == 32)) // Date,Day Cells
+                    if (row <= 2 && (column == 0 || column == colLength)) // Date,Day Cells
                     {
-                        cellClass = "headerEmptyCells";
+                        cellClass = headerCellsClass + "Empty";
                         cellId = "cell_" + row + "," + column;
                         cellText = "";//row.ToString();
                     }
                     else if (row <= 2) // Date,Day Cells
                     {
-                        cellClass = "headerCells";
+                        cellClass = headerCellsClass;
                         cellId = "cell_" + row + "," + column;
                         cellText = row.ToString();
                     }
@@ -55,7 +58,7 @@
                         cellId = "empName_" + row;
                         cellText = row.ToString();
                     }
-                    else if (row > 2 && column == 32) // Total by employee cells
+                    else if (row > 2 && column == colLength) // Total by employee cells
                     {
                         cellClass = "rowTotalCells";
                         cellId = "rowTotal_" + row;

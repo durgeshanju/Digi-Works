@@ -22,7 +22,7 @@
     background-color: lightcoral;
 }
 
-.headerEmptyCells {
+.headerCellsEmpty {
     width: 90px;
     height: 15px;
     float: left;
@@ -54,18 +54,7 @@
     background-color: khaki;
 }
 
-.headerTodayCells {
-    width: 30px;
-    height: 15px;
-    float: left;
-    border: 1px solid #d3dce0;
-    margin: .5px;
-    font-size: .8em;
-    text-align: center;
-    background-color: lightblue;
-}
-
-.headerHolidayCells {
+.headerCellsHoliday {
     width: 30px;
     height: 15px;
     float: left;
@@ -74,6 +63,44 @@
     font-size: .8em;
     text-align: center;
     background-color: #5b5959;
+    color : white;
+    
+}
+
+.headerCellsHolidayCurrentDate {
+    width: 30px;
+    height: 15px;
+    float: left;
+    border: 2px solid #808080;
+    margin: .5px;
+    font-size: .8em;
+    text-align: center;
+    background-color: #5b5959;
+    color : white;
+    
+}
+
+.headerCellsCurrentDate {
+    width: 30px;
+    height: 15px;
+    float: left;
+    border: 2px solid black;
+    margin: .5px;
+    font-size: .8em;
+    text-align: center;
+    background-color: lightcoral;
+}
+
+.leaveCellsCurrentDate {
+    width: 30px;
+    height: 30px;
+    float: left;
+    border: 2px solid black;
+    margin: .5px;
+    font-size: .8em;
+    text-align: center;
+    float: left;
+    background-color: lightgray;
 }
 
 
