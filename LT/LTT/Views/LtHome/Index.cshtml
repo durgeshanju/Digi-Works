@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <title></title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<script src="~/Scripts/jquery-2.1.1.js"></script>
+
+<script src="~/Scripts/jquery.ui.datepicker.js"></script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
+<script src="~/Scripts/Lt/LeaveTracker.js"></script>
+<link href="~/Content/Lt/LeaveTracker.css" rel="stylesheet" />
+
+ Select Date:
+<input type="date" id="inputDate">
+
+@functions {
+
+    void ConstructLeaveDetailsGrid()
+    {
+    }
+}
+
+<table id="ltTable">
+
+    @{
+        var cellClass = "";
+        var cellId = "";
+        var cellText = "";
+
+        for (int row = 0; row < 14; row++)
+        {
+            <tr>
+                @for (int column = 0; column < 33; column++)
+                {
+                    if (row <= 2 && (column == 0 || column == 32)) // Date,Day Cells
+                    {
+                        cellClass = "headerEmptyCells";
+                        cellId = "cell_" + row + "," + column;
+                        cellText = "";//row.ToString();
+                    }
+                    else if (row <= 2) // Date,Day Cells
+                    {
+                        cellClass = "headerCells";
+                        cellId = "cell_" + row + "," + column;
+                        cellText = row.ToString();
+                    }
+                    else if (row > 2 && column == 0) // Employee name cells
+                    {
+                        cellClass = "employeeNameCells";
+                        cellId = "empName_" + row;
+                        cellText = row.ToString();
+                    }
+                    else if (row > 2 && column == 32) // Total by employee cells
+                    {
+                        cellClass = "rowTotalCells";
+                        cellId = "rowTotal_" + row;
+                        cellText = row.ToString();
+                    }
+                    else  // Leave cells
+                    {
+                        cellClass = "leaveCells";
+                        cellId = "cell_" + row + "," + column;
+                        cellText = row.ToString() + "," + column.ToString();
+                    }
+
+                    <td id="@cellId" class="@cellClass"></td>
+                }
+
+            </tr>
+        }
+    }
+</table>
+
+@*<div class="Pages" id="pageId">
+        <a href="#" id="stratingPage" class="startingPageClass"><<</a>  <a href="#" id="firstPage" class="badge firstPageClass">0</a>  <a href="#" class="badge secondPageClass" id="secondPage">1</a>   <a href="#" id="thirdPage" class="badge thirdPageClass">2</a>   <a href="#" id="lastPage" class="lastPageClass">>></a>
+    </div>*@
+
