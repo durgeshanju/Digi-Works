@@ -1,11 +1,13 @@
 ﻿$(document).ready(function () {
 
+
+
     setDefaultDateOnLoad();
 
     $('#inputDate').change(function () {
 
-        loadDatesByCurrentDate(inputDate.value)
-    })
+        loadDatesByCurrentDate(window.inputDate.value);
+    });
 });
 
 function setDefaultDateOnLoad() {
@@ -15,49 +17,55 @@ function setDefaultDateOnLoad() {
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
     $('#inputDate').val(today);
     loadDatesByCurrentDate(new Date());
+
 }
 
-function loadDatesByCurrentDate(SetDate) {
+function loadDatesByCurrentDate(setDate) {
     var weekdays = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     var months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
-    var currdate = new Date(SetDate);
+    var currdate = new Date(setDate);
     var startingDate = new Date(currdate);
     var endingDate = new Date(currdate);
-    var month = "";
-    var date = "";
-    var day = "";
+    var month;
+    var date;
+    var day;
     var column = 1;
-    var headerCellClassName = "";
-    var currentDateColumn = -1;
-    var toDay = new Date();
+    var headerCellClassName;
+    var currentDateColumn = 16;
+    var currentDateClass = 'CurrentDate';
+    var headerCellsClass = 'headerCells';
+    var holidayClass = 'Holiday';
+    
     startingDate.setDate(startingDate.getDate() - 15);
     endingDate.setDate(endingDate.getDate() + 15);
 
-    for (pivot = startingDate; pivot <= endingDate; pivot.setDate(pivot.getDate() + 1)) {
+    for (var pivot = startingDate; pivot <= endingDate; pivot.setDate(pivot.getDate() + 1)) {
         month = months[pivot.getMonth()];
         date = pivot.getDate();
         day = weekdays[pivot.getDay()];
 
         if (day == "Sat" || day == "Sun")
-            headerCellClassName = "headerCellsHoliday"
+            headerCellClassName = headerCellsClass + holidayClass;
         else
-            headerCellClassName = "headerCells"
+            headerCellClassName = headerCellsClass;
 
         setCellAttributes("cell_0," + column, month, headerCellClassName);
         setCellAttributes("cell_1," + column, date, headerCellClassName);
         setCellAttributes("cell_2," + column, day, headerCellClassName);
 
-        if (pivot.getDate() == toDay.getDate())
+        if (pivot.getDate() == currdate.getDate())
             currentDateColumn = column;
 
         column++;
     }
 
     if (currentDateColumn >= 0) {
-        var headerClassName = document.getElementById("cell_0," + currentDateColumn).className + "CurrentDate";
-        var leaveClassName = document.getElementById("cell_3," + currentDateColumn).className + "CurrentDate";
+
+        var headerClassName = document.getElementById("cell_0," + currentDateColumn).className + currentDateClass;
         setStyleToHeaderRowsByAColumn(currentDateColumn, headerClassName);
-        setStyleToLeaveRowsByAColumn(currentDateColumn, leaveClassName);
+
+        //var leaveClassName = document.getElementById("cell_3," + currentDateColumn).className + currentDateClass;
+        //setStyleToLeaveRowsByAColumn(currentDateColumn, leaveClassName);
     }
 }
 
@@ -68,20 +76,21 @@ function setCellAttributes(id, text, classValue) {
 }
 
 function setCellStyle(id, classValue) {
-    var cell = document.getElementById(id);    
+    var cell = document.getElementById(id);
     cell.className = classValue;
 }
 
-function setStyleToLeaveRowsByAColumn(column, styleName) {
-    alert(styleName);
-    for (rowIndex = 3; rowIndex <= 32; rowIndex++) {
+function setStyleToRowsRangeByAColumn(start, end, column, styleName) {
+    for (var rowIndex = start; rowIndex <= end; rowIndex++) {
         setCellStyle("cell_" + rowIndex + "," + column, styleName);
     }
 }
 
 function setStyleToHeaderRowsByAColumn(column, styleName) {
-    alert(styleName);
-    for (rowIndex = 0; rowIndex <= 2; rowIndex++) {
-        setCellStyle("cell_" + rowIndex + "," + column, styleName);
-    }
+    setStyleToRowsRangeByAColumn(0, 2, column, styleName);
 }
+
+function setStyleToLeaveRowsByAColumn(column, styleName) {
+    setStyleToRowsRangeByAColumn(3, 13, column, styleName);
+}
+
