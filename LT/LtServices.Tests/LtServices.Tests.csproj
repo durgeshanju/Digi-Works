@@ -102,9 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LtServices\LtServices.csproj">
+    <ProjectReference Include="..\LtServices\LtApi.csproj">
       <Project>{E0BE272E-8D69-4446-B4B5-978236DBFD97}</Project>
-      <Name>LtServices</Name>
+      <Name>LtApi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

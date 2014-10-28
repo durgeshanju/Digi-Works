@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{135196
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{03B5B0B1-46A0-48EB-84DA-74B8E70D5643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtServices", "LtServices\LtServices.csproj", "{E0BE272E-8D69-4446-B4B5-978236DBFD97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtApi", "LtServices\LtApi.csproj", "{E0BE272E-8D69-4446-B4B5-978236DBFD97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LtServices.Tests", "LtServices.Tests\LtServices.Tests.csproj", "{64A57796-A2F0-4F96-B25F-9A0CE829F52E}"
 EndProject
