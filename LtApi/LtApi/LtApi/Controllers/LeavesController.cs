@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
-using Models;
+using Business;
+using Leaves = Models.Leaves;
 
 namespace LtApi.Controllers
 {
     public class LeavesController : ApiController
     {
-        
+        readonly ILeaves _leavesBusiness = new Business.Leaves();
         // GET api/values
         public IEnumerable<Leaves> Get()
         {
-            return new List<Leaves>();
+            return _leavesBusiness.GetLeaveTrackerDetailsForGivenDateRange();
         }
 
         // GET api/values/5
