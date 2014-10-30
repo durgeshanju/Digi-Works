@@ -1,6 +1,6 @@
 ﻿namespace Repository
 {
-    public interface ILeaveTypes
+    public interface ILeaveTypes : IBaseRepository<DataAccess.LeaveType>
     {
     }
 }

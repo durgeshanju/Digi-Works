@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using Business;
+using Models;
 
 namespace LtApi.Controllers
 {
@@ -8,10 +9,31 @@ namespace LtApi.Controllers
     {
         readonly ILeaveTypes _leaveTypesBusiness = new LeaveTypes();
 
+        public IEnumerable<LeaveType> Get()
+        {
+            return _leaveTypesBusiness.GetAll();
+        }
 
-        //public IEnumerable<Leaves> Get()
-        //{
-        //    return _leaveTypesBusiness.SelectAll();
-        //}
+       // GET api/values/5
+        public LeaveType Get(int id)
+        {
+            return new LeaveType();
+        }
+
+        // POST api/values
+        public void Post(LeaveType value)
+        {
+        }
+
+        // PUT api/values/5
+        public void Put(int id, LeaveType value)
+        {
+        }
+
+        // DELETE api/values/5
+        public void Delete(int id)
+        {
+        }
+
     }
 }

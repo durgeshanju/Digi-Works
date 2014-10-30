@@ -1,6 +1,6 @@
 ﻿namespace Repository
 {
-    public interface ILeaves
+    public interface ILeaves : IBaseRepository<DataAccess.Leaves>
     {
     }
 }

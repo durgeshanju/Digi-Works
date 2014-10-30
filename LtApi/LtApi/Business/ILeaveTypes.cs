@@ -5,6 +5,6 @@ namespace Business
 {
     public interface ILeaveTypes
     {
-      //  IEnumerable<Models.LeaveType> GetAll();
+        IEnumerable<Models.LeaveType> GetAll();
     }
 }

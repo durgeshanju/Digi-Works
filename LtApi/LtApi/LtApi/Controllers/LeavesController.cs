@@ -8,10 +8,11 @@ namespace LtApi.Controllers
     public class LeavesController : ApiController
     {
         readonly ILeaves _leavesBusiness = new Business.Leaves();
+
         // GET api/values
         public IEnumerable<Leaves> Get()
         {
-            return _leavesBusiness.GetLeaveTrackerDetailsForGivenDateRange();
+            return _leavesBusiness.GetAll();
         }
 
         // GET api/values/5

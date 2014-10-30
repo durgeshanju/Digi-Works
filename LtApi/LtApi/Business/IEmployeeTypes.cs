@@ -1,6 +1,6 @@
 ﻿namespace Business
 {
-    public interface IEmployeeTypes
+    public interface IEmployeeTypes 
     {
     }
 }

@@ -16,7 +16,7 @@ namespace DataAccess
     public partial class LeaveTrackerEntities : DbContext
     {
         public LeaveTrackerEntities()
-            : base("name=LeaveTrackerEntities")
+            : base("name=LeaveTrackerDbContext")
         {
         }
     

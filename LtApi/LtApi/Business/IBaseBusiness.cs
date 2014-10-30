@@ -1,6 +1,6 @@
 ﻿namespace Business
 {
-    interface IBaseBusiness
+    interface IBaseBusiness 
     {
     }
 }

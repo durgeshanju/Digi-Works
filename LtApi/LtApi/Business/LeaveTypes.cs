@@ -12,9 +12,9 @@ namespace Business
             _leavesRepo = new Repository.LeaveTypes();
         }
 
-        //public IEnumerable<LeaveType> GetAll()
-        //{
-        //    return _leavesRepo.SelectAll();
-        //}
+         public IEnumerable<LeaveType> GetAll()
+         {
+             return _leavesRepo.SelectAll().ToModel();
+         }
     }
 }

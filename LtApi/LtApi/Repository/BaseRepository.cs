@@ -8,13 +8,13 @@ namespace Repository
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        private readonly LeaveTrackerDbContext _dbContext;
-        private readonly DbSet<T> _table;
+        protected readonly LeaveTrackerDbContext DbContext;
+        protected readonly DbSet<T> Table;
 
         public BaseRepository(LeaveTrackerDbContext db)
         {
-            _dbContext = db;
-            _table = db.Set<T>();
+            DbContext = db;
+            Table = db.Set<T>();
         }
 
         public BaseRepository()
@@ -23,34 +23,34 @@ namespace Repository
 
         public IEnumerable<T> SelectAll()
         {
-            return _table.ToList();
+            return Table.ToList();
         }
 
         public T SelectById(object id)
         {
-            return _table.Find(id);
+            return Table.Find(id);
         }
 
         public void Insert(T obj)
         {
-            _table.Add(obj);
+            Table.Add(obj);
         }
 
         public void Update(T obj)
         {
-            _table.Attach(obj);
-            _dbContext.Entry(obj).State = EntityState.Modified;
+            Table.Attach(obj);
+            DbContext.Entry(obj).State = EntityState.Modified;
         }
 
         public void Delete(object id)
         {
-            T existing = _table.Find(id);
-            _table.Remove(existing);
+            T existing = Table.Find(id);
+            Table.Remove(existing);
         }
 
         public void Save()
         {
-            _dbContext.SaveChanges();
+            DbContext.SaveChanges();
         }
 
     }

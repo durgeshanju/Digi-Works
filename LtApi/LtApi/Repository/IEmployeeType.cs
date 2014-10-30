@@ -1,6 +1,6 @@
 ﻿namespace Repository
 {
-    public interface IEmployeeType
+    public interface IEmployeeType : IBaseRepository<DataAccess.EmployeeType>
     {
     }
 }

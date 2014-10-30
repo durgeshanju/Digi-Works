@@ -1,12 +1,13 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Configuration;
 
 namespace DataAccess
 {
     public class LeaveTrackerDbContext : DbContext
     {
         public LeaveTrackerDbContext()
-            : base("name=LeaveTrackerDbContext")
+            : base("")//base(ConfigurationManager.ConnectionStrings[""].ConnectionString)
         {
         }
 
