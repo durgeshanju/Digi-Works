@@ -1,6 +1,6 @@
 namespace Models
 {
-    public  class Leaves
+    public class Leaves : BaseModel
     {
         public int Id { get; set; }
         public System.DateTime StartDate { get; set; }

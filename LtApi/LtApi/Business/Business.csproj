@@ -42,6 +42,7 @@
     <Compile Include="BaseBusiness.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeTypes.cs" />
+    <Compile Include="ModelToEntityConverter.cs" />
     <Compile Include="EntityToModelConverter.cs" />
     <Compile Include="IBaseBusiness.cs" />
     <Compile Include="IEmployee.cs" />

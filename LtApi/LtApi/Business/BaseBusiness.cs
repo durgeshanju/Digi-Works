@@ -2,5 +2,6 @@
 {
     public class BaseBusiness : IBaseBusiness
     {
+        
     }
 }

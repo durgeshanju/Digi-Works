@@ -17,21 +17,33 @@ namespace Business
             return _leavesRepo.SelectAll().ToModel();
         }
 
+        public Models.Leaves SelectById(object id)
+        {
+            return _leavesRepo.SelectById(id).ToModel();
+        }
+
+        public void Insert(Models.Leaves obj)
+        {
+            _leavesRepo.Insert(obj.ToEntity());
+        }
+
+        public void Update(Models.Leaves obj)
+        {
+            _leavesRepo.Update(obj.ToEntity());
+
+        }
+
+        public void Delete(object id)
+        {
+            _leavesRepo.Delete(id);
+
+        }
+
         public IEnumerable<Models.Leaves> GetLeaveTrackerDetailsForGivenDateRange(DateTime startDate, DateTime endDate)
         {
             return _leavesRepo.SelectAll().ToModel();
         }
-       
-        private DateTime GetStartDateForGivenCurrentDate(DateTime currentDate)
-        {
-            var startDate = currentDate.AddDays(-15);
-            return startDate;
-        }
-        private DateTime GetEndDateForGivenCurrentDate(DateTime currentDate)
-        {
-            var endDate = currentDate.AddDays(+15);
-            return endDate;
-        }
-       
+
+
     }
 }

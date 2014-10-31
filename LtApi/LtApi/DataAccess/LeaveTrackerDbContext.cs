@@ -7,7 +7,7 @@ namespace DataAccess
     public class LeaveTrackerDbContext : DbContext
     {
         public LeaveTrackerDbContext()
-            : base("")//base(ConfigurationManager.ConnectionStrings[""].ConnectionString)
+            : base(@"Data Source=DIGIWORKSTATION\SQLEXPRESS;Initial Catalog=LeaveTracker;Persist Security Info=True;User ID=sa;Password=Secure*12")//base(ConfigurationManager.ConnectionStrings[""].ConnectionString)
         {
         }
 
