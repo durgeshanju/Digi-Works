@@ -1,6 +1,9 @@
-﻿namespace Business
+﻿using System.Collections.Generic;
+
+namespace Business
 {
-    interface IBaseBusiness 
+    public interface IBaseBusiness
     {
+        
     }
 }

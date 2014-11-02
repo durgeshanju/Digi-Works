@@ -11,7 +11,7 @@ namespace LtApi.Controllers
 
         public IEnumerable<Models.Employee> Get()
         {
-            return new List<Models.Employee>(); //_employeeBusiness.GetAll();
+            return _employeeBusiness.GetAll();
         }
 
         // GET api/values/5

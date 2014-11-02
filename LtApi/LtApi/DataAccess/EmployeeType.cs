@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations;
+
 namespace DataAccess
 {
     using System;
@@ -18,7 +20,8 @@ namespace DataAccess
         {
             this.Employees = new HashSet<Employee>();
         }
-    
+
+        [Key]
         public int TypeId { get; set; }
         public string Description { get; set; }
     
