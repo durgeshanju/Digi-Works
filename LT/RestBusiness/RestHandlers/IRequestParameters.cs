@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestBusiness
+namespace RestBusiness.RestHandlers
 {
-    public class Class1
+    public interface IRequestParameters
     {
+
     }
+
 }

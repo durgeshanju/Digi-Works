@@ -20,6 +20,7 @@
     font-size: .8em;
     text-align: center;
     background-color: lightcoral;
+	horiz-align: center;
 }
 
 .headerCellsEmpty {
@@ -64,6 +65,7 @@
     text-align: center;
     background-color: #5b5959;
     color : white;
+	horiz-align: center;
     
 }
 
@@ -77,6 +79,7 @@
     text-align: center;
     background-color: #5b5959;
     color : white;
+	horiz-align: center;
     
 }
 
