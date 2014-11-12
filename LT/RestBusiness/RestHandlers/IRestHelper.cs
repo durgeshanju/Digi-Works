@@ -2,13 +2,13 @@
 {
     public interface IRestHelper
     {
-        TResult Get<TInput, TResult>(TInput args);
+        TResult Get<TResult>(string uri);
 
-        TResult Put<TInput, TResult>(TInput args);
+        TResult Put<TInput, TResult>(string uri,TInput args);
 
-        TResult Post<TInput, TResult>(TInput args);
+        TResult Post<TInput, TResult>(string uri,TInput args);
 
-        TResult Delete<TInput, TResult>(TInput args);
-
+        TResult Delete<TInput, TResult>(string uri,TInput args);
+        
     }
 }

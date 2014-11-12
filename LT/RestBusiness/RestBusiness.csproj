@@ -43,8 +43,10 @@
     <Compile Include="BaseBusiness.cs" />
     <Compile Include="IBaseBusiness.cs" />
     <Compile Include="RestHandlers\IRequestParameters.cs" />
+    <Compile Include="RestHandlers\IRestClient.cs" />
     <Compile Include="RestHandlers\IRestHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestHandlers\RestClient.cs" />
     <Compile Include="RestHandlers\RestHelper.cs" />
     <Compile Include="RestHandlers\RequestParameters.cs" />
   </ItemGroup>

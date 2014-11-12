@@ -1,8 +1,13 @@
 ﻿$(document).ready(function () {
 
-
-
     setDefaultDateOnLoad();
+
+    $("#inputDate").datepicker({
+        changeMonth: true,
+        changeYear: true
+    //}).on('change', function () {
+    //    loadDatesByCurrentDate(window.inputDate.value);
+    });
 
     $('#inputDate').change(function () {
 

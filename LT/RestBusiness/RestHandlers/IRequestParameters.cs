@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RestBusiness.RestHandlers
 {
     public interface IRequestParameters
     {
-
+        Uri BaseAddress { get; set; }
+        IEnumerable<KeyValuePair<string, string>> DefaultRequestHeaders { get; set; }
+        IEnumerable<KeyValuePair<string, string>> CustomRequestHeaders { get; set; }
     }
 
 }
