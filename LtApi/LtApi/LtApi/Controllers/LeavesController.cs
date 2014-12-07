@@ -18,22 +18,25 @@ namespace LtApi.Controllers
         // GET api/values/5
         public Leaves Get(int id)
         {
-            return new Leaves();
+            return _leavesBusiness.SelectById(id);
         }
 
         // POST api/values
         public void Post(Leaves value)
         {
+            _leavesBusiness.Insert(value);
         }
 
         // PUT api/values/5
         public void Put(int id, Leaves value)
         {
+            _leavesBusiness.Update(value);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            _leavesBusiness.Delete(id);
         }
     }
 }

@@ -1,14 +1,16 @@
-﻿namespace RestBusiness.RestHandlers
+﻿using System.Threading.Tasks;
+
+namespace RestBusiness.RestHandlers
 {
     public interface IRestHelper
     {
-        TResult Get<TResult>(string uri);
+        Task<TResult> Get<TResult>(string uri);
 
-        TResult Put<TInput, TResult>(string uri,TInput args);
+        Task<TResult> Put<TInput, TResult>(string uri, TInput args);
 
-        TResult Post<TInput, TResult>(string uri,TInput args);
+        Task<TResult> Post<TInput, TResult>(string uri, TInput args);
 
-        TResult Delete<TInput, TResult>(string uri,TInput args);
+        Task<TResult> Delete<TInput, TResult>(string uri, TInput args);
         
     }
 }

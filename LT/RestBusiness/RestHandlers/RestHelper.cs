@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace RestBusiness.RestHandlers
 {
@@ -25,34 +26,45 @@ namespace RestBusiness.RestHandlers
 
         #region IRestHelper Members
 
-        public TResult Get<TResult>(string uri)
+        public async Task<TResult> Get<TResult>(string uri)
         {
             var response = await _client.GetAsync(uri);
 
-            return HandleResponse<TResult>(response);
+            return await HandleResponse<TResult>(response);
         }
 
-        public TResult Put<TInput, TResult>(string uri, TInput args)
+        public async Task<TResult> Put<TInput, TResult>(string uri, TInput args)
         {
-            throw new NotImplementedException();
+            var response = await _client.PutAsJsonAsync(uri, args);
+
+            return await HandleResponse<TResult>(response);
         }
 
-        public TResult Post<TInput, TResult>(string uri, TInput args)
+        public async Task<TResult> Post<TInput, TResult>(string uri, TInput args)
         {
-            throw new NotImplementedException();
+            var response = await _client.PostAsJsonAsync(uri, args);
+
+            return await HandleResponse<TResult>(response);
         }
 
-        public TResult Delete<TInput, TResult>(string uri, TInput args)
+        public async Task<TResult> Delete<TInput, TResult>(string uri, TInput args)
         {
-            throw new NotImplementedException();
+            var response = await _client.DeleteAsync(uri);
+
+            return await HandleResponse<TResult>(response);
         }
 
         #endregion
 
-        private TResult HandleResponse<TResult>(HttpResponseMessage response)
+        private static Task<TResult> HandleResponse<TResult>(HttpResponseMessage response)
         {
-            return await response.Content.ReadAsAsync<TResult>();
+            return response.Content.ReadAsAsync<TResult>();
         }
+
+        //private static HttpContent GetHttpContent()
+        //{
+        //    return new 
+        //}
 
     }
 }

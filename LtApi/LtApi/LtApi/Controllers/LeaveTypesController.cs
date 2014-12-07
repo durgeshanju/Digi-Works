@@ -17,22 +17,25 @@ namespace LtApi.Controllers
        // GET api/values/5
         public LeaveType Get(int id)
         {
-            return new LeaveType();
+            return _leaveTypesBusiness.SelectById(id);
         }
 
         // POST api/values
         public void Post(LeaveType value)
         {
+            _leaveTypesBusiness.Insert(value);
         }
 
         // PUT api/values/5
         public void Put(int id, LeaveType value)
         {
+            _leaveTypesBusiness.Update(value);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            _leaveTypesBusiness.Delete(id);
         }
 
     }

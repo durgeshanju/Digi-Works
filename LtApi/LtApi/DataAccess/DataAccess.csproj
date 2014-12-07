@@ -83,6 +83,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Lt.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Lt.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Lt.edmx</DependentUpon>

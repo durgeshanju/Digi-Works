@@ -2,30 +2,41 @@
 
     setDefaultDateOnLoad();
 
-    $("#inputDate").datepicker({
-        changeMonth: true,
-        changeYear: true
-    //}).on('change', function () {
-    //    loadDatesByCurrentDate(window.inputDate.value);
-    });
+  $('#inputDate').change(function () {
+      loadDatesByCurrentDate(this.value);
+  });
 
-    $('#inputDate').change(function () {
+  
 
-        loadDatesByCurrentDate(window.inputDate.value);
-    });
+  //$('#inputDate').datepicker({
+  //    changeMonth: true,
+  //    changeYear: true
+  //    //}).on('change', function ()
+  //    //{
+  //    //    loadDatesByCurrentDate(window.inputDate.value);
+  //});
+
+    
 });
 
 function setDefaultDateOnLoad() {
+
+    $('#inputDate').changeMonth = true;
+    $('#inputDate').changeYear = true;
+
+    
+
     var now = new Date();
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
     $('#inputDate').val(today);
-    loadDatesByCurrentDate(new Date());
+    loadDatesByCurrentDate(today);
 
 }
 
 function loadDatesByCurrentDate(setDate) {
+    //alert(setDate);
     var weekdays = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
     var months = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec");
     var currdate = new Date(setDate);
@@ -40,7 +51,7 @@ function loadDatesByCurrentDate(setDate) {
     var currentDateClass = 'CurrentDate';
     var headerCellsClass = 'headerCells';
     var holidayClass = 'Holiday';
-    
+
     startingDate.setDate(startingDate.getDate() - 15);
     endingDate.setDate(endingDate.getDate() + 15);
 

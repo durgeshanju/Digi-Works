@@ -17,23 +17,26 @@ namespace LtApi.Controllers
         // GET api/values/5
         public Models.Employee Get(int id)
         {
-            return new Models.Employee();
+            return _employeeBusiness.SelectById(id);
         }
 
         // POST api/values
         public void Post(Models.Employee value)
         {
+            _employeeBusiness.Insert(value);
         }
 
         // PUT api/values/5
         public void Put(int id, Models.Employee value)
         {
+            _employeeBusiness.Update(value);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
+            _employeeBusiness.Delete(id);
         }
-        
-        }
+
+    }
 }
